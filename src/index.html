@@ -23,7 +23,7 @@
       class="bg-cover bg-center bg-[url('../src/image/background.jpg')] w-full h-screen bg-gray-900 flex justify-center items-center"
     >
       <div
-        class="wrapper flex flex-col items-center gap-4 my-36 mx-auto bg-gradient-to-r from-cyan-400 to-blue-700 w-1/4 rounded-lg opacity-75"
+        class="wrapper py-4 my-36 mx-auto bg-gradient-to-r from-cyan-400 to-blue-700 w-1/4 rounded-lg opacity-75"
       >
         <div class="search-menu flex justify-center">
           <input
@@ -36,6 +36,31 @@
           >
             <i class="bx bx-search"></i>
           </button>
+        </div>
+        <div class="weather flex flex-col items-center gap-8">
+          <img class="w-32" src="./image/pic1.webp" alt="" />
+          <h2 class="text-white text-5xl font-semibold">13&degc</h2>
+          <h3 class="text-white text-5xl">Tehran</h3>
+          <div class="weather-information flex gap-16 mb-8">
+            <h2>
+              <span class="text-white text-2xl">
+                <i class="bx bx-wind"></i>10.29 km/h</span
+              >
+              <br />
+              <span class="block text-center text-white font-light text-sm"
+                >Wind Speed</span
+              >
+            </h2>
+
+            <h2>
+              <span class="text-white text-2xl"
+                ><i class="bx bxl-tailwind-css"></i>48%</span
+              ><br />
+              <span class="block text-center text-white font-light text-sm"
+                >Humidity</span
+              >
+            </h2>
+          </div>
         </div>
       </div>
     </div>
