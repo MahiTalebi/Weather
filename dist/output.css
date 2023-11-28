@@ -565,8 +565,16 @@ video {
   display: flex;
 }
 
+.h-32 {
+  height: 8rem;
+}
+
 .h-8 {
   height: 2rem;
+}
+
+.h-\[520px\] {
+  height: 520px;
 }
 
 .h-screen {
