@@ -43,6 +43,7 @@ function getWeatherData(location) {
       console.error("Error try again", error);
     });
 }
+getWeatherData("Tehran");
 searchButton.addEventListener("click", () => {
   let getLocation = input.value;
   getWeatherData(getLocation);
