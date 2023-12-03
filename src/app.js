@@ -6,7 +6,12 @@ function getWeatherData(location) {
   fetch(
     `http://api.weatherapi.com/v1/current.json?key=c89d696c32c2479ebc294543232411&q=${location}&aqi=no`
   )
-    .then((res) => res.json())
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      throw (input.style.borderColor = "red");
+    })
     .then((content) => {
       const weatherData = content;
       const icon = weatherData.current.condition.icon;
