@@ -23,7 +23,6 @@ function getWeatherData(location) {
   });
   Promise.all([request1, request2])
     .then(([data1, data2]) => {
-      console.log(data1, data2);
       const weatherData = data1;
       const timeZoneData = data2;
       const icon = weatherData.current.condition.icon;
@@ -35,10 +34,7 @@ function getWeatherData(location) {
       const time = Number(weatherData.location.localtime.slice(11, 13));
       const sunSet = Number(timeZoneData.sunset.slice(0, 2));
       const sunRise = Number(timeZoneData.sunrise.slice(0, 2));
-      console.log(sunSet);
-      console.log(sunRise);
-      console.log(time);
-
+     
       if (time >= sunRise && time <= sunSet) {
         backGround.style.background =
           " url('../src/image/background.jpg') no-repeat center center / cover ";
