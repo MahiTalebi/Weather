@@ -1,6 +1,8 @@
 const input = document.querySelector("input");
 const searchButton = document.querySelector("button");
 const weatherInfo = document.querySelector(".weather");
+const wrapper = document.querySelector(".wrapper");
+const backGround = document.querySelector("body>div");
 
 function getWeatherData(location) {
   const request1 = fetch(
@@ -30,6 +32,22 @@ function getWeatherData(location) {
       const weatherStatus = weatherData.current.condition.text;
       const windSpeed = weatherData.current.wind_kph;
       const humidity = weatherData.current.humidity;
+      const time = Number(weatherData.location.localtime.slice(11, 13));
+      const sunSet = Number(timeZoneData.sunset.slice(0, 2));
+      const sunRise = Number(timeZoneData.sunrise.slice(0, 2));
+      console.log(sunSet);
+      console.log(sunRise);
+      console.log(time);
+
+      if (time >= sunRise && time <= sunSet) {
+        backGround.style.background =
+          " url('../src/image/background.jpg') no-repeat center center / cover ";
+        wrapper.style.background = "linear-gradient(#22d3ee, #1d4ed8)";
+      } else {
+        backGround.style.background =
+          " url('../src/image/darkBackground.jpg') no-repeat center center / cover ";
+        wrapper.style.background = "linear-gradient(#0e7490, #1e3a8a)";
+      }
 
       weatherInfo.innerHTML = `<img class="w-32 h-32" src="${icon}" alt="icon" />
                                   <h2 class="text-white text-5xl font-semibold">${temp}&degc</h2>
