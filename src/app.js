@@ -9,17 +9,23 @@ function getWeatherData(location) {
     `http://api.weatherapi.com/v1/current.json?key=c89d696c32c2479ebc294543232411&q=${location}&aqi=no`
   ).then((response) => {
     if (response.ok) {
+      input.style.borderColor = "#6b7280";
       return response.json();
+    } else {
+      input.style.borderColor = "red";
+      throw new Error("Invalid city name");
     }
-    throw (input.style.borderColor = "red");
   });
   const request2 = fetch(
     `https://api.ipgeolocation.io/astronomy?apiKey=b256aaecb4f7418aadedc94e8712248b&location=${location}`
   ).then((response) => {
     if (response.ok) {
+      input.style.borderColor = "#6b7280";
       return response.json();
+    } else {
+      input.style.borderColor = "red";
+      throw new Error("Invalid city name");
     }
-    throw (input.style.borderColor = "red");
   });
   Promise.all([request1, request2])
     .then(([data1, data2]) => {
@@ -34,7 +40,7 @@ function getWeatherData(location) {
       const time = Number(weatherData.location.localtime.slice(11, 13));
       const sunSet = Number(timeZoneData.sunset.slice(0, 2));
       const sunRise = Number(timeZoneData.sunrise.slice(0, 2));
-     
+
       if (time >= sunRise && time <= sunSet) {
         backGround.style.background =
           " url('../src/image/background.jpg') no-repeat center center / cover ";
